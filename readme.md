@@ -17,7 +17,7 @@ npm install --save-dev ingrid-ssg
 npm run-script ingrid
 ```
 
-That's it, yo. If you run into problems, [open an issue]().
+That's it, yo. If you run into problems, [open an issue](issues).
 
 ## Bricks
 
