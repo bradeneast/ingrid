@@ -1,23 +1,27 @@
 # Ingrid
 > A very small static site generator with a very big attitude.
 
-Here's an example of a site generated with Igrid: [bradeneast.com](https://bradeneast.com)
+[This is an example](https://bradeneast.com) of a site generated with Igrid.
+
 
 ## Getting Started
 
-1. In a new project, do the npm install thing
+### 1. Do the npm thing in a new folder
 ```
+npm init -y
+...
 npm install --save-dev ingrid-ssg
 ```
 
-2. Create a folder named `dist` a folder named `src`
+### 2. Run Ingrid
+```
+npx ingrid
+```
 
-3. Add an HTML or markdown file to your `src` folder and run Ingrid
-```
-npm run-script ingrid
-```
+### 3. Start dropping HTML and Markdown files in the `src` folder.
 
 That's it, yo. If you run into problems, [open an issue](issues).
+
 
 ## Bricks
 
