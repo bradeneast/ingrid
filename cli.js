@@ -1,51 +1,46 @@
 #!/usr/bin/env node
 
-import { readLocal, slash } from './lib/utils.js';
-import tree from './lib/tree.js';
-import render from './lib/render.js';
-import options from './lib/options.js';
-import fs from 'fs-extra';
+const { dist, ignorePattern } = require('./lib/options.js');
+const makeTree = require('./lib/makeTree.js');
+const render = require('./lib/render.js');
+const runDev = require('./lib/runDev.js');
+const fs = require('fs-extra');
+const path = require('path');
 
 
 console.time('Built in');
 
-let dist = options.paths.dist;
-// Determines whether or not to use the cache
-let useCache = /-dev/i.test(process.argv.toString());
-let cache = readLocal('./.cache');
-fs.writeFile('./.cache', JSON.stringify(tree));
+
+let dev = /-dev/i.test(process.argv.toString());
 
 
-// Render normally if no cache
-if (!cache || !useCache) {
+if (dev) {
+	runDev({
+		port: 3000,
+		hostname: '127.0.0.1'
+	});
+}
 
+
+if (!dev) {
+	// Clear the dist directory
 	fs.ensureDirSync(dist);
 
-	// Clear the dist directory
 	for (let filename of fs.readdirSync(dist))
-		if (!options.ignorePattern.test(filename))
-			fs.removeSync(slash(dist, filename));
-
-	tree.map(render);
-}
+		if (!ignorePattern.test(filename))
+			fs.removeSync(path.join(dist, filename));
 
 
-// Render from cache
-if (cache && cache.length) {
+	// Render tree
+	let tree = makeTree();
 
-	cache = JSON.parse(cache);
-
-	tree.map((page, index) => {
-		let pageSys = page.props.sys;
-		let cacheSys = cache[index]?.props?.sys || {};
-
-		// Rudimentary diff for page content and file paths (works for 90% of changes)
-		if (pageSys.content != cacheSys.content)
-			render(page);
-		else if (pageSys.href != cacheSys.href)
-			render(page);
+	tree.map(page => {
+		let { destination, content } = render(page, tree);
+		fs.ensureFileSync(destination);
+		fs.writeFile(destination, content);
 	})
 }
+
 
 
 console.timeEnd('Built in');

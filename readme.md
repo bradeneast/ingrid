@@ -181,3 +181,16 @@ Remember those default Brick properties? `<Each>` items are a place we might use
 	<a href="{{sys.href}}">Learn More</a>
 </div>
 ```
+
+
+## Development mode
+
+To use Ingrid's development mode, just run Ingrid with the `-dev` flag.
+
+```
+npx ingrid -dev
+```
+
+This will start a live server at [127.0.0.1:3000](http://127.0.0.1:3000/) where you can refresh to see changes in your site.
+
+> Hot-reload is coming in a future version. I'm trying to find the best way to do it with few to none additional dependencies.
