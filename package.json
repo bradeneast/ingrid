@@ -1,6 +1,6 @@
 {
   "name": "ingrid-ssg",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "A very small static site generator with a very big attitude",
   "type": "commonjs",
   "main": "cli.js",
@@ -10,10 +10,12 @@
   "author": "Braden East",
   "license": "MIT",
   "dependencies": {
+    "colors": "^1.4.0",
     "fs-extra": "^9.0.1",
     "marked": "1.1.1",
     "prismjs": "^1.21.0",
-    "safe-eval": "^0.4.1"
+    "safe-eval": "^0.4.1",
+    "ws": "^7.3.1"
   },
   "repository": {
     "type": "git",
