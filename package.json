@@ -1,6 +1,6 @@
 {
   "name": "ingrid-ssg",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A very small static site generator with a very big attitude",
   "type": "commonjs",
   "main": "cli.js",
