@@ -42,10 +42,10 @@ Here's an example of how a Brick might be used for a simple homepage:
 ```html
 <!-- src/index.html -->
 <Brick use="/_bricks/template.html">
-	<Title>Nostalgia Books</Title>
-	<Content>
-		<p>We sell those good books.</p>
-	</Content>
+  <Title>Nostalgia Books</Title>
+  <Content>
+    <p>We sell those good books.</p>
+  </Content>
 </Brick>
 ```
 
@@ -58,21 +58,21 @@ Here's what the template might look like:
 ```html
 <!-- src/_bricks/template.html -->
 <head>
-	<title>
-		<Slot name="Title"></Slot>
-	</title>
+  <title>
+    <Slot name="Title"></Slot>
+  </title>
 </head>
 
 <body>
-	<h1>
-		<Slot name="Title"></Slot>
-	</h1>
+  <h1>
+    <Slot name="Title"></Slot>
+  </h1>
 
-	<main>
-		<Slot name="Content"></Slot>
-	</main>
+  <main>
+    <Slot name="Content"></Slot>
+  </main>
 
-	<footer>...</footer>
+  <footer>...</footer>
 </body>
 ```
 
@@ -86,17 +86,17 @@ The resulting file will look like this:
 ```html
 <!-- dist/index.html -->
 <head>
-	<title>Nostalgia Books</title>
+  <title>Nostalgia Books</title>
 </head>
 
 <body>
-	<h1>Nostalgia Books</h1>
+  <h1>Nostalgia Books</h1>
 
-	<main>
-		<p>We sell those good books.</p>
-	</main>
+  <main>
+    <p>We sell those good books.</p>
+  </main>
 
-	<footer>...</footer>
+  <footer>...</footer>
 </body>
 ```
 
@@ -124,7 +124,7 @@ Each's are placeholders for a list of pages you want to include. They're a rudim
 
 ```html
 <ul>
-	<Each from="books/.+?/" sort="BookRating" use="/_bricks/book.html"></Each>
+  <Each from="books/.+?/" sort="BookRating" use="/_bricks/book.html"></Each>
 </ul>
 ```
 
@@ -133,10 +133,10 @@ For the example above, Ingrid would import and hydrate the file below for each b
 ```html
 <!-- src/_bricks/book.html -->
 <li>
-	<h3>
-		<Slot name="BookTitle"></Slot>
-	</h3>
-	Rating: <Slot name="BookRating"></Slot> stars
+  <h3>
+    <Slot name="BookTitle"></Slot>
+  </h3>
+  Rating: <Slot name="BookRating"></Slot> stars
 </li>
 ```
 
@@ -144,18 +144,18 @@ The result would look something like this:
 
 ```html
 <ul>
-	<li>
-		<h3>The Magician's Nephew</h3>
-		Rating: 4 stars
-	</li>
-	<li>
-		<h3>The Giver</h3>
-		Rating: 5 stars
-	</li>
-	<li>
-		<h3>Where the Red Fern Grows</h3>
-		Rating: 3.5 stars
-	</li>
+  <li>
+    <h3>The Magician's Nephew</h3>
+    Rating: 4 stars
+    </li>
+  <li>
+    <h3>The Giver</h3>
+    Rating: 5 stars
+  </li>
+  <li>
+    <h3>Where the Red Fern Grows</h3>
+    Rating: 3.5 stars
+  </li>
 </ul>
 ```
 
