@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/*"
+  to = "https://docs.ingrid-ssg.com"
+  status = 302
+  force = true
