@@ -1,3 +1,5 @@
+![The Ingrid Logo](/logo.svg)
+
 # Ingrid
 > A very small static site generator with a very big attitude.
 
