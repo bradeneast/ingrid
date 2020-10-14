@@ -1,6 +1,6 @@
 {
   "name": "ingrid-ssg",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A very small static site generator with a very big attitude",
   "keywords": [
     "static site generator",
@@ -15,7 +15,6 @@
   "author": "Braden East",
   "license": "MIT",
   "dependencies": {
-    "colors": "^1.4.0",
     "fs-extra": "^9.0.1",
     "marked": "^1.2.0",
     "prismjs": "^1.21.0",
