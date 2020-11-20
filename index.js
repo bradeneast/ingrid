@@ -9,25 +9,24 @@ const makeTree = require('./lib/makeTree.js');
 const render = require('./lib/render.js');
 
 
-async function buildFromSrc({ dist, src, ignorePattern }) {
+async function buildFromSrc({
+	dist = options.dist,
+	src = options.src,
+	ignorePattern = options.ignorePattern
+}) {
 
 	console.time('Built in');
 	console.log('\nStarting...\n');
-
 	fs.ensureDirSync(dist);
 	fs.ensureDirSync(src);
 
 	let dev = /-dev/i.test(process.argv.toString());
-
-
 	if (dev) {
 		startDevServer({
 			port: 3000,
 			hostname: '127.0.0.1'
 		});
 	}
-
-
 	if (!dev) {
 		// Clear the dist directory
 		for (let filename of fs.readdirSync(dist))
@@ -36,7 +35,6 @@ async function buildFromSrc({ dist, src, ignorePattern }) {
 
 		// Render tree
 		let tree = makeTree();
-
 		tree.map(page => {
 			let { destination, content } = render(page, tree);
 			fs.ensureFileSync(destination);
