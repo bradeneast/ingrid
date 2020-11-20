@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
-const { dist, src, ignorePattern } = require('./lib/options.js');
-const makeTree = require('./lib/makeTree.js');
-const render = require('./lib/render.js');
-const startDevServer = require('./lib/dev/server.js');
 const fs = require('fs-extra');
 const path = require('path');
+
+const { dist, src, ignorePattern } = require('./lib/options.js');
+const startDevServer = require('./lib/dev/server.js');
+const makeTree = require('./lib/makeTree.js');
+const render = require('./lib/render.js');
+
 
 
 console.time('Built in');
