@@ -1,19 +1,14 @@
 #!/usr/bin/env node
 
-const fs = require('fs-extra');
-const path = require('path');
+function buildFromSrc() {
 
-const options = require('./lib/options.js');
-const startDevServer = require('./lib/dev/server.js');
-const makeTree = require('./lib/makeTree.js');
-const render = require('./lib/render.js');
+	const fs = require('fs-extra');
+	const path = require('path');
 
-
-async function buildFromSrc({
-	dist = options.dist,
-	src = options.src,
-	ignorePattern = options.ignorePattern
-}) {
+	const { dist, src, ignorePattern } = require('./lib/options.js');
+	const startDevServer = require('./lib/dev/server.js');
+	const makeTree = require('./lib/makeTree.js');
+	const render = require('./lib/render.js');
 
 	console.time('Built in');
 	console.log('\nStarting...\n');
@@ -49,5 +44,4 @@ async function buildFromSrc({
 }
 
 
-buildFromSrc(options);
 module.exports = buildFromSrc;
