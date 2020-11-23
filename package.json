@@ -1,6 +1,6 @@
 {
   "name": "ingrid-ssg",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A very small static site generator with a very big attitude",
   "keywords": [
     "static site generator",
@@ -8,9 +8,9 @@
     "fast"
   ],
   "type": "commonjs",
-  "main": "./index.js",
+  "main": "./ingrid-ssg.js",
   "bin": {
-    "ingrid": "./index.js"
+    "ingrid": "./cli.js"
   },
   "author": "Braden East",
   "license": "MIT",
