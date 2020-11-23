@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const buildFromSrc = require("./ingrid-ssg");
+const Ingrid = require("./ingrid-ssg");
 const startDevServer = require('./lib/dev/server.js');
 
 let dev = /-dev/i.test(process.argv.toString());
@@ -12,5 +12,5 @@ if (dev) {
   });
 }
 if (!dev) {
-  buildFromSrc();
+  new Ingrid().build();
 }
