@@ -1,6 +1,6 @@
 {
   "name": "ingrid-ssg",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "A very small static site generator with a very big attitude",
   "keywords": [
     "static site generator",
