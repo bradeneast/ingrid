@@ -5,8 +5,8 @@ class Ingrid {
 		const fs = require('fs-extra');
 		const path = require('path');
 		const { dist, src, ignorePattern } = require('./lib/options.js');
-		const makeTree = require('./lib/makeTree.js');
-		const render = require('./lib/render.js');
+		const makeMap = require('./lib/mapper.js');
+		const render = require('./lib/renderer.js');
 
 		console.time('Built in');
 		console.log('\nStarting...\n');
@@ -18,10 +18,10 @@ class Ingrid {
 			if (!ignorePattern.test(filename))
 				fs.removeSync(path.join(dist, filename));
 
-		// Render tree
-		let tree = makeTree();
-		tree.map(page => {
-			let { destination, content } = render(page, tree);
+		// Render pageMap
+		let pageMap = makeMap();
+		pageMap.map(page => {
+			let { destination, content } = render(page);
 			fs.ensureFileSync(destination);
 			fs.writeFile(destination, content);
 		})
